@@ -68,7 +68,7 @@ if uploaded_files:
         if st.button(f"Convert {file.name}"):
             buffer = BytesIO()
             if conversion_type == "CSV":
-                df.to_CSV(buffer, index = False)
+                df.to_csv(buffer, index = False)
                 file_name = file.name.replace(file_ext, ".csv")
                 mim_type = "text/csv"    #mim_type --> memory type
 
@@ -83,7 +83,7 @@ if uploaded_files:
             st.download_button(
                 label = f"🔽 Download {file.name} as {conversion_type}",
                 data = buffer,
-                filename = file_name,
-                mim = mim_type
+                file_name = file_name,
+                mime = mim_type
             )
         st.success("🎇 All files processed!")
